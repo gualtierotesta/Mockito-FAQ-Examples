@@ -109,7 +109,7 @@ Here `AClass` is the class to be mocked. Object `inst` is an real instance of `A
 See **example01** for a complete example.
 
 
-*4.1 How to create a mock (with annotations and runner) ?*
+*4.2 How to create a mock (with annotations) ?*
 
 A mock can be created using the `@Mock` annotation as following:
 
@@ -123,7 +123,9 @@ Here `AClass` is the class to be mocked. Object `inst` is an real instance of `A
 
 *Note*: in this example, the first line is just for comparison purposes. 
 
-See **example01** for a complete example.
+See **example 02** and **example 03** for a complete example.
+
+See question **2.3** to see how to enable the annotations.
 
 
 <div id="id-methods"></div>
