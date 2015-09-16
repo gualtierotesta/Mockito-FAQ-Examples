@@ -9,7 +9,7 @@
 
     <name>Mockito FAQ Examples</name>
     <description>Examples for/from Mockito FAQ</description>
-    <url>www.gualtierotesta.it</url>
+    <url>http://www.gualtierotesta.it</url>
     <inceptionYear>2015</inceptionYear>
 
     <licenses>
@@ -26,7 +26,7 @@
     </organization>
 
     <issueManagement>
-        <url>https://github.com/gualtierotesta/test-solutions/issues</url>
+        <url>https://github.com/gualtierotesta/Mockito-FAQ-Examples/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
@@ -51,8 +51,10 @@
     <properties>
         <skipTests>false</skipTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <javac.src.version>1.7</javac.src.version>
+        <javac.target.version>1.7</javac.target.version>
     </properties>
 
     <dependencies>
@@ -69,4 +71,21 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${javac.src.version}</source>
+                    <target>${javac.target.version}</target>
+                    <optimize>true</optimize>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
