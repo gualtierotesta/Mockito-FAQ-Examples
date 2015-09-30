@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package it.gualtierotesta.mockitofaq.example04;
+package it.gualtierotesta.mockitofaq.example05;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
@@ -25,17 +25,17 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
- * EXAMPLE 04
- *
- * Unit test (see EXAMPLE01 for complete use cases tests)
+ * EXAMPLE 05
  *
  * @author Gualtiero Testa <www.gualtierotesta.it>
  */
 @RunWith(MockitoJUnitRunner.class)
 public class TheClassTest {
 
+    // Note: the class to be tested is abstract so we cannot instantiate it
+    // but we can create a spy of it so the non-abstract method is still working
     @InjectMocks
-    private TheClass sut;   // system under test
+    private TheClass sut = Mockito.spy(TheClass.class);   // system under test
 
     @Mock
     private ADependency dependency;
@@ -44,11 +44,13 @@ public class TheClassTest {
     public void testCaseOneUser() {
         // given
         int loggedUsers = 1;
+        String serviceName = "MyService: ";
         Mockito.when(dependency.countLoggedUsers()).thenReturn(loggedUsers);
+        Mockito.when(sut.serviceName()).thenReturn(serviceName);
         // when
         String result = sut.loggerUsersMessage();
         // then
-        Assert.assertThat(result, CoreMatchers.startsWith("One"));
+        Assert.assertThat(result, CoreMatchers.startsWith(serviceName + "One"));
     }
 
 }
