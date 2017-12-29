@@ -34,4 +34,13 @@ class TheClass {
         dependency.saveUser(user);
     }
 
+    boolean canUserLogin(String userName, String password) {
+        boolean result = false;
+        if (dependency.canLogin(userName, password)) {
+            dependency.saveLastLoggedUser(userName);
+            result = true;
+        }
+        return result;
+    }
+
 }

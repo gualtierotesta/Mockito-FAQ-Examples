@@ -25,8 +25,24 @@ interface ADependency {
     /**
      * Save the user data somewhere
      *
-     * @param pUser the user to be saved
+     * @param theUser the user to be saved
      */
-    void saveUser(User pUser);
+    void saveUser(User theUser);
+
+    /**
+     * Save the name of the last logged user
+     *
+     * @param userName the name of the user
+     */
+    void saveLastLoggedUser(String userName);
+
+    /**
+     * Check if user can login
+     *
+     * @param userName user name
+     * @param password user password
+     * @return true if can login, false otherwise
+     */
+    boolean canLogin(String userName, String password);
 
 }
